@@ -8,11 +8,13 @@ namespace xyz
 {
     public class xyz : BaseScript
     {
-        public xyz()
-            : base()
+        public xyz() : base()
         {
             PlayerConnected += new Action<Entity>(player =>
             {
+                Call("setdvar", "cg_LaserForceOn", 1);
+                Call("setdvar", "cg_laserlight", 1);
+
                 HudElem PlayerPos = HudElem.CreateFontString(player, "hudbig", 0.8f);
                 PlayerPos.SetPoint("top left", "top left", 10, 140);
                 PlayerPos.HideWhenInMenu = true;
